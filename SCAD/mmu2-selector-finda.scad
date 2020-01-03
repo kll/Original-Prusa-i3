@@ -17,8 +17,6 @@ module blade()
         }
 }
 
-
-
 module selector()
 {
     difference()
@@ -31,17 +29,25 @@ module selector()
             translate([50,-61,21]) cube([15,22,10]);
             translate([59,-51,22]) cylinder(r=9.2, h=9, $fn=50);
         }
+
+        // temporarily chop off some to better visualize filament path
+        //translate([59, -70, -25]) cube([50, 50, 50]);
+
+        // cutout for 4x2 magnet for helping hold the ball down
+        translate([59,-51, 0.2]) cylinder(d=4, h=2, $fn=50);
+        translate([59,-53, 0.2]) cube([6, 4, 2]);
+
+        // cutout for seeing the ball and sensor placement
+        translate([55, -61.1, 7]) cube([8, 7, 5]);
         
         // filament path
         translate([59,-30,4]) rotate([90,0,0]) cylinder(r=1.3, h=40, $fn=50); 
         translate([59,-27,4]) rotate([90,0,0]) cylinder(r2=1.3, r1=1.4,h=15, $fn=50); 
-        translate([59,-60,4]) rotate([90,0,0]) cylinder(r2=2.5, r1=1.3,h=2, $fn=50);
-       
-        translate([59,-27,4]) rotate([90,0,0]) cylinder(r2=1.3, r1=2,h=10, $fn=50); 
+        translate([59,-52,4]) rotate([90,0,0]) cylinder(r2=2, r1=1.3,h=2.5, $fn=50);
+        translate([59,-54.5, 4]) rotate([90,0,0]) cylinder(r=2.05, h=7.1, $fn=50);  // 4mm OD 3mm ID PTFE tube from front
+        translate([59,-59, 4]) rotate([90,0,0]) cylinder(r1=2.05, r2=2.5, h=3, $fn=50);
         
-        translate([59,-55,4]) rotate([90,0,0]) cylinder(r2=1.3, r1=2.5,h=3, $fn=50);
-        translate([59,-52,4]) rotate([90,0,0]) cylinder(r2=2.5, r1=1.3,h=3, $fn=50);
-       
+
         // cutter space
         translate([39,-39,2.1]) cube([16,12,3]);
         translate([39,-39,2]) rotate([-20,0,0]) cube([16,10,3.2]);
@@ -58,8 +64,8 @@ module selector()
         
         // TR nut nuts
         translate([58,-33.5-2.8,-5.8]) cube([2.1,7,5.6]);
-        translate([40,-52.5,-3]) rotate([0,90,0]) cylinder(r=3.1, h=21, $fn=6); 
-        translate([36,-52.5,-3]) rotate([0,90,0]) cylinder(r=3.3, h=21, $fn=6);
+        translate([40,-52.5,-3]) rotate([0,90,0]) rotate([0, 0, 90]) cylinder(r=3.1, h=21, $fn=6); 
+        translate([36,-52.5,-3]) rotate([0,90,0]) rotate([0, 0, 90]) cylinder(r=3.3, h=21, $fn=6);
         
         // TR nut
         translate([9,-43,-3]) rotate([0,90,0]) cylinder(r=4.6, h=180, $fn=50); 
@@ -108,8 +114,6 @@ module selector()
         translate([39,-37,-30]) rotate([-20,0,0]) cube([40,12,30]);
         translate([39,-54,-35]) rotate([50,0,0]) cube([40,12,40]);
 
-       
-        
         // front cover mount
         translate([59,-48,-8]) rotate([90,0,0]) cylinder(r=1.65, h=30, $fn=50);
         translate([59,-59,-8]) rotate([90,0,0]) cylinder(r1=1.65, r2=2.2,h=3, $fn=50);
@@ -141,25 +145,28 @@ module selector()
         translate([30,-82,32]) rotate([-50,0,0]) cube([20,30,30]);
         
         // better printing
-            // blade holder
-            translate([55-2.9,-33,12-1.7]) cube([5.8,2.35,3.4]);
-            translate([55-1.7,-33,12-1.7]) cube([3.4,2.6,3.4]);
-            translate([45-2.9,-33,16-1.7]) cube([5.8,2.35,3.4]);
-            translate([45-1.7,-33,16-1.7]) cube([3.4,2.6,3.4]);
-        
-            // front plate holder
-            translate([59-1.65,-58.5,-8-2.8]) cube([3.3,2.4,5.6]);
-            translate([59-1.65,-58.5,15-2.8]) cube([3.3,2.4,5.6]);
-            translate([59-1.65,-58.5,-8-1.65]) cube([3.3,2.7,3.3]);
-            translate([59-1.65,-58.5,15-1.65]) cube([3.3,2.7,3.3]);
+        // blade holder
+        translate([55-2.9,-33,12-1.7]) cube([5.8,2.35,3.4]);
+        translate([55-1.7,-33,12-1.7]) cube([3.4,2.6,3.4]);
+        translate([45-2.9,-33,16-1.7]) cube([5.8,2.35,3.4]);
+        translate([45-1.7,-33,16-1.7]) cube([3.4,2.6,3.4]);
+    
+        // front plate holder
+        translate([59-1.65,-58.5,-8-2.8]) cube([3.3,2.4,5.6]);
+        translate([59-1.65,-58.5,15-2.8]) cube([3.3,2.4,5.6]);
+        translate([59-1.65,-58.5,-8-1.65]) cube([3.3,2.7,3.3]);
+        translate([59-1.65,-58.5,15-1.65]) cube([3.3,2.7,3.3]);
             
-        
+        //version
+        translate([46,-40,-23.3]) rotate([0,180,180]) linear_extrude(height = 0.8) 
+        { text("KLL",font = "helvetica:style=Bold", size=5); } 
     }
 }
 
 
-rotate([90,0,0]) 
-selector();
+translate([-59, 0, 45])
+    rotate([90,0,0]) 
+        selector();
 
 
 

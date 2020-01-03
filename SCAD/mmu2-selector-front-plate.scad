@@ -5,6 +5,11 @@
 // http://www.reprap.org/wiki/Prusa_Mendel
 // http://prusamendel.org
 
+// requires threadlib and it's prerequisites
+// https://github.com/adrianschlatter/threadlib
+
+use <threadlib/threadlib.scad>
+
 module front_plate()
 {
     difference()
@@ -20,13 +25,10 @@ module front_plate()
         
         translate([59,-65,-8]) rotate([90,0,0]) cylinder(r=3.2, h=5, $fn=50);
         translate([59,-65,15]) rotate([90,0,0]) cylinder(r=3.2, h=5, $fn=50);
-        
-        // brass insert
-        translate([59,-60,4]) rotate([90,0,0]) cylinder(r=3.8, h=6, $fn=50); 
-        translate([59,-63,4]) rotate([90,0,0]) cylinder(r2=5, r1=3.5, h=2, $fn=50); 
-        translate([59,-59.5-1,4]) rotate([90,0,0]) cylinder(r1=5, r2=3.5, h=2, $fn=50); 
-        translate([59,-64,4]) rotate([90,0,0]) cylinder(r1=5,r2=5.5, h=2, $fn=50); 
-        
+
+        // M10 threads for PC4-M10 straight through PTFE connector
+        translate([59, -61.1, 4]) rotate([90, 0, 0]) bolt("M10x1", turns=4.5, higbee_arc=30);
+
         // edges
         translate([45,-64,-15]) rotate([0,0,-45]) cube([15,4,40]);
         translate([45,-64,-18.5]) rotate([45,0,0]) cube([25,4,42]);
