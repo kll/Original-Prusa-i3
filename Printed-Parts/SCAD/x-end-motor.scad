@@ -107,8 +107,8 @@ module x_end_motor()
             translate([-30,-30,58]) cube([30,30,10]);
             
             // version
-            translate([-23.2,-20,2]) rotate([90,0,270]) linear_extrude(height = 0.6) 
-            { text("R3",font = "helvetica:style=Bold", size=4, center=true); }   
+            translate([-23.2,-16,2]) rotate([90,0,270]) linear_extrude(height = 0.6) 
+            { text("KLL",font = "helvetica:style=Bold", size=4); }   
         }
 
     translate([-15,10,6]) rotate([90,0,0]) cylinder(h=3, r=5, $fn=30);   

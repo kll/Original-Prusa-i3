@@ -80,28 +80,28 @@ module x_end_holes()
 // TR Nut trap
    // Hole for the nut
     //#translate(v=[0,-17, -1]) poly_cylinder(h = 9.01, r = 6.7, $fn = 60);
-    translate(v=[0,-17, -1]) cylinder(h = 14.51, r = 6.7, $fn = 60);
-    translate(v=[0,-17, -0.1]) cylinder(h = 1, r1 = 7.2,r2 = 6.7, $fn = 60);
+    translate(v=[0,-17, -1]) cylinder(h = 14.51, r = 5.2, $fn = 60);
+    translate(v=[0,-17, -0.1]) cylinder(h = 1, r1 = 5.7,r2 = 5.2, $fn = 60);
 
 // Screw holes for TR nut
    
    
-    translate(v=[0,-17, 0]) rotate([0, 0, -135]) translate([0, 9.5, -4]) cylinder(h = 19, r = 1.65, $fn=50);
+    translate(v=[0,-17, 0]) rotate([0, 0, -135]) translate([0, 8, -4]) cylinder(h = 19, r = 1.65, $fn=50);
     
-    translate(v=[0,-17, 0]) rotate([0, 0, -135]) translate([0, -9.5, -4]) cylinder(h = 19, r = 1.65, $fn=50);
+    translate(v=[0,-17, 0]) rotate([0, 0, -135]) translate([0, -8, -4]) cylinder(h = 19, r = 1.65, $fn=50);
         
     
   
-    translate(v=[0,-17,0]) rotate([0,0,-135]) translate([0,9.5,-1]) cylinder(h=2, r1=2.2,r2=1.65, $fn=50);
-    translate(v=[0,-17,0]) rotate([0,0,-135]) translate([0,-9.5,-1]) cylinder(h=2, r1=2.2,r2=1.65,, $fn=50);
+    translate(v=[0,-17,0]) rotate([0,0,-135]) translate([0, 8, -1]) cylinder(h=2, r1=2.2,r2=1.65, $fn=50);
+    translate(v=[0,-17,0]) rotate([0,0,-135]) translate([0, -8, -1]) cylinder(h=2, r1=2.2,r2=1.65,, $fn=50);
 
 
 // Nut traps for TR nut screws
-    translate(v=[0,-17, 0]) rotate([0, 0, -135]) translate([0, 9.5, 11]) rotate([0, 0, 0])cylinder(h = 6, r = 3.1, $fn=6);
+    translate(v=[0,-17, 0]) rotate([0, 0, -135]) translate([0, 8, 11]) rotate([0, 0, 0])cylinder(h = 6, r = 3.1, $fn=6);
 
-    translate(v=[0,-17, 0]) rotate([0,0,-135]) translate([0,-9.5,10]) rotate([0,0,30])cylinder(h = 4, r = 3.2, $fn=6);
+    translate(v=[0,-17, 0]) rotate([0,0,-135]) translate([0,-8,10]) rotate([0,0,30])cylinder(h = 4, r = 3.2, $fn=6);
     translate([-5.5,-17.2,10]) rotate([0,0,32]) cube([5,5.9,3.5]);
-    translate([-0,-17.2,10]) rotate([0,0,58]) cube([5,10,3.5]);
+    translate([-0,-17.2,10]) rotate([0,0,58]) cube([5,8.8,3.5]);
     
    
     
