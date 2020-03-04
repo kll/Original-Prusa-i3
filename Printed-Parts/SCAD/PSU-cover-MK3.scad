@@ -38,11 +38,26 @@ module m3_screw()
     translate([0,0,14]) cylinder(r=2.8,h=5, $fn=30);
 }
 
+module socket_cutout()
+{
+    cube([47.5,27.5,30]);
+    for(y=[-1,1])
+    {
+        translate([47.5/2, 27.5/2+y*20, 0])cylinder(r=2,h=50, $fn=8);
+    }
+}
 
-
-
-
-
+module socket_nuttraps()
+{
+    difference()
+    {
+        for(y=[-1,1])
+        {
+            translate([47.5/2, 27.5/2+y*20, 0]) rotate([0,0,180]) nuttrap();
+        }
+        translate([0,0,-15])socket_cutout();
+    }
+}
 
 module PSU_COVER()
 {
@@ -98,10 +113,7 @@ difference()
 
     translate([5.5,0.5,0])
     {
-        translate([48,1.5,40])cube([27.5,32.9,30]); // socket cutout
-        translate([48-4.5,3+15.6+0.5,40])cylinder(r=2,h=50, $fn=8); // socket right hole cutout
-        translate([48-4.5+37-0.5,3+15.6+0.5,40])cylinder(r=2,h=50, $fn=8); // socket left hole cutout
-        translate([1,6,44])cube([12.5,20,30]); // switch cutout
+        translate([38,3+11.25,40])socket_cutout(); // socket cutout
     }
 
 
@@ -171,8 +183,7 @@ difference()
         {
             PSU_COVER();
             PSU_Y_REINFORCEMENT();
-            translate([85.5,4+15.6+0.5,39.1+13.5]) rotate([0,0,180]) nuttrap();
-            translate([49,4+15.6+0.5,39+13.5]) rotate([0,0,180]) nuttrap();
+            translate([5.5+38,20-7+1.75,39+13.5])socket_nuttraps();
         }   
         translate([-5,-9,-30]) cube([150,10,100]);
     }       
@@ -200,7 +211,7 @@ module upper_part()
         
         //version
         translate([73,7.5,1.5]) rotate([0,0,0]) linear_extrude(height = 0.6) 
-        { text("R1",font = "helvetica:style=Bold", size=6, center=true); }   
+        { text("KLL",font = "helvetica:style=Bold", size=6, center=true); }   
     }
 
 
@@ -295,7 +306,7 @@ module lower_part()
     
     //version
     translate([10,3.6,20]) rotate([90,-90,180]) linear_extrude(height = 0.8) 
-    { text("R1",font = "helvetica:style=Bold", size=6, center=true); }    
+    { text("KLL",font = "helvetica:style=Bold", size=6, center=true); }    
     }
 
 
