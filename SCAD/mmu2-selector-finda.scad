@@ -43,10 +43,20 @@ module selector()
         // filament path
         translate([59,-30,4]) rotate([90,0,0]) cylinder(r=1.3, h=40, $fn=50); 
         translate([59,-27,4]) rotate([90,0,0]) cylinder(r2=1.3, r1=1.4,h=15, $fn=50); 
-        translate([59,-52,4]) rotate([90,0,0]) cylinder(r2=2, r1=1.3,h=2.5, $fn=50);
-        translate([59,-54.5, 4]) rotate([90,0,0]) cylinder(r=2.05, h=7.1, $fn=50);  // 4mm OD 3mm ID PTFE tube from front
+
+        // 4mm OD 3mm ID PTFE tube from front
         translate([59,-59, 4]) rotate([90,0,0]) cylinder(r1=2.05, r2=2.5, h=3, $fn=50);
+        translate([59-1.3,-56.1,2.7]) cube([2.6,0.5,2.6]);
+        difference()
+        {
+            translate([59,-56, 4]) rotate([90,0,0]) cylinder(r=2.05, h=6, $fn=50);
+            translate([56.7,-56.4,2]) cube([1,0.4,4]);
+            translate([60.3,-56.4,2]) cube([1,0.4,4]);
+        }
         
+        //translate([59-1.3,-58.6,2.5]) cube([2.6,2.4,3]);
+        //translate([59-1.3,-58.5,4-1.3]) cube([2.6,2.7,2.6]);
+        //translate([59-1.3,-58.7,4-1.5]) cube([2.6,2.7,3]);
 
         // cutter space
         translate([39,-39,2.1]) cube([16,12,3]);
@@ -156,7 +166,7 @@ module selector()
         translate([59-1.65,-58.5,15-2.8]) cube([3.3,2.4,5.6]);
         translate([59-1.65,-58.5,-8-1.65]) cube([3.3,2.7,3.3]);
         translate([59-1.65,-58.5,15-1.65]) cube([3.3,2.7,3.3]);
-            
+        
         //version
         translate([46,-40,-23.3]) rotate([0,180,180]) linear_extrude(height = 0.8) 
         { text("KLL",font = "helvetica:style=Bold", size=5); } 
