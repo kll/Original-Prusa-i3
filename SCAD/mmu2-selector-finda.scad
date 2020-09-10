@@ -38,20 +38,21 @@ module selector()
         translate([59,-53, 0.2]) cube([6, 4, 2]);
 
         // cutout for seeing the ball and sensor placement
-        translate([55, -61.1, 7]) cube([8, 7, 5]);
+        translate([55, -61.1, 7.5]) cube([8, 7, 4]);
         
         // filament path
         translate([59,-30,4]) rotate([90,0,0]) cylinder(r=1.3, h=40, $fn=50); 
-        translate([59,-27,4]) rotate([90,0,0]) cylinder(r2=1.3, r1=1.4,h=15, $fn=50); 
+        translate([59,-27,4]) rotate([90,0,0]) cylinder(r2=1.3, r1=1.4,h=15, $fn=50);
+        translate([59,-51,4]) rotate([90,0,0]) cylinder(r=1.5,h=10, $fn=50);
 
         // 4mm OD 3mm ID PTFE tube from front
         translate([59,-59, 4]) rotate([90,0,0]) cylinder(r1=2.05, r2=2.5, h=3, $fn=50);
-        translate([59-1.3,-56.1,2.7]) cube([2.6,0.5,2.6]);
+        translate([59-1.5,-56.1,2.5]) cube([3,0.5,3]);
         difference()
         {
             translate([59,-56, 4]) rotate([90,0,0]) cylinder(r=2.05, h=6, $fn=50);
-            translate([56.7,-56.4,2]) cube([1,0.4,4]);
-            translate([60.3,-56.4,2]) cube([1,0.4,4]);
+            translate([56.5,-56.4,2]) cube([1,0.4,4]);
+            translate([60.5,-56.4,2]) cube([1,0.4,4]);
         }
         
         //translate([59-1.3,-58.6,2.5]) cube([2.6,2.4,3]);
